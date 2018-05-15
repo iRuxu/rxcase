@@ -282,7 +282,7 @@ Fn.response = function (config) {
 
     //创建映射数组
     var screen_cls = []
-    for (var key in default_config) {
+    for (var key in config) {
         screen_cls.push(key)
     }
 

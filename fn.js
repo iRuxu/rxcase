@@ -1,4 +1,7 @@
-var Fn = {}
+var Fn = {
+    ua : {},
+    win : {}
+}
 
 //Utility
 //===================================================
@@ -89,18 +92,16 @@ Fn.clone = function (o) {
 }
 
 /**
- * 移除数组中的空值或字符串中的空格
+ * 移除数组中的无效值或字符串两端中的空格
  * 
  * @param {array|string} o 需要被处理的对象
  * @returns {array|string} 返回除空后的对象
  */
 Fn.trim = function (o) {
-
     //如果是字符串
     if (Object.prototype.toString.call(o) == '[object String]') {
         return o.replace(/(^\s*)|(\s*$)/g, "");
     }
-
     //如果是数组
     if (Object.prototype.toString.call(o) == '[object Array]') {
         for (var i = 0; i < o.length; i++) {
@@ -111,7 +112,6 @@ Fn.trim = function (o) {
         }
         return o
     }
-
 }
 
 //数组
@@ -121,7 +121,7 @@ Fn.trim = function (o) {
  * 
  * @param {array} arr 要进行重新排序的数组
  * @param {boolean} order 默认升序排列，指定false为降序排列 
- * @returns 
+ * @returns {array} 返回重新排序后的新数组，不修改原数组
  */
 Fn.sort = function (arr, order) {
     order == undefined ? order = true : order = !!order
@@ -183,6 +183,19 @@ Fn.preLoadImage = function (srcArr, callback) {
 /**
  * UserAgent检测
  * 
+ * @returns {object} 返回一个记录ua信息的对象
+ *  isPC : boolean
+ *  isMobile : boolean
+ *  platform : 'pc' pc、ipad等各类移动端平台名称
+ *  browser : 'chrome' 浏览器的名称
+ *  version : 28 浏览器的版本
+ * 
+ *  同时给html根元素添加 
+ *  .ua-pc / ua-mobile
+ *  .ua-ipad / .ua-iphone / ... （主要用于ios下一些特殊需要）
+ *  .browser-firefox / .browser-safari / ... （主要用于firefox,safari一些特殊情况）
+ *  .ie-8 / ... （如果是IE浏览器，会额外有ie-版本号，用来特殊处理IE版本下的问题）
+ * 
  */
 Fn.ua = function () {
 
@@ -236,13 +249,14 @@ Fn.ua = function () {
         _ua.browser = pcAgentsAlias[browser]
 
         var version = pcAgents[2]
-        _ua.version = parseFloat(version)
+        _ua.version = parseInt(version)
 
         cls += ' browser-' + _ua.browser
         if (_ua.browser == 'ie') cls += ' ie-' + _ua.version
         document.documentElement.className = cls
     }()
 
+    Fn.ua = _ua
     return _ua
 }
 
@@ -250,6 +264,8 @@ Fn.ua = function () {
  * 设置一个响应样式规则
  * 
  * @param {object} config 
+ * 例：{'screen-phone':[320,768]}
+ * 当窗口尺寸在value对应值范围内时（包含第一个值，但不包含第二个值），将在html元素上添加key的class
  */
 Fn.response = function (config) {
 
@@ -273,6 +289,11 @@ Fn.response = function (config) {
     //根据页面尺寸绑定对应class至html
     var resetLayout = function () {
         var width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+        var height = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+
+        Fn.win.width = width
+        Fn.win.height = height
+
         var html = document.documentElement;
         var cls = html.className
         var _cls = ''

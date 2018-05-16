@@ -1,6 +1,8 @@
 var Fn = {
-    ua : {},
-    win : {}
+    version : '0.2',
+    github : 'https://github.com/iRuxu/fn.js'
+    ua: {},
+    win: {}
 }
 
 //Utility
@@ -9,7 +11,7 @@ var Fn = {
  * 数据类型判断
  * 
  * @param {any} 需要判断的数据对象
- * @returns {string} 返回数据类型 string/array/object/number/undefined/null/boolean
+ * @returns {String} 返回数据类型 string/array/object/number/undefined/null/boolean
  */
 Fn.typeOf = function (o) {
     var s = Object.prototype.toString.call(o)
@@ -21,7 +23,7 @@ Fn.typeOf = function (o) {
  * 判断是否为空
  * 
  * @param {any} o 对象、数组、函数参数、字符串
- * @returns {boolean}
+ * @returns {Boolean}
  */
 Fn.isEmpty = function (o) {
     //null
@@ -37,7 +39,7 @@ Fn.isEmpty = function (o) {
  * 判断是否为DOM元素
  * 
  * @param {any} o 要传入的对象
- * @returns {boolean}
+ * @returns {Boolean}
  */
 Fn.isElement = function (o) {
     return !!(o && o.nodeType === 1);
@@ -47,8 +49,8 @@ Fn.isElement = function (o) {
 /**
  * 返回min~max的一个随机整数，包含min与max
  * 
- * @param {number} min 
- * @param {number} max 
+ * @param {Number} min 
+ * @param {Number} max 
  * @returns 
  */
 Fn.random = function (min, max) {
@@ -58,7 +60,7 @@ Fn.random = function (min, max) {
 /**
  * 返回当前的时间戳
  * 
- * @returns {number} 1526360255318
+ * @returns {Number} 1526360255318
  */
 Fn.now = function () {
     return new Date().getTime()
@@ -94,8 +96,8 @@ Fn.clone = function (o) {
 /**
  * 移除数组中的无效值或字符串两端中的空格
  * 
- * @param {array|string} o 需要被处理的对象
- * @returns {array|string} 返回除空后的对象
+ * @param {Array | String} o 需要被处理的对象
+ * @returns {Array | String} 返回除空后的对象
  */
 Fn.trim = function (o) {
     //如果是字符串
@@ -119,9 +121,9 @@ Fn.trim = function (o) {
 /**
  * 重新排序一个数组
  * 
- * @param {array} arr 要进行重新排序的数组
- * @param {boolean} order 默认升序排列，指定false为降序排列 
- * @returns {array} 返回重新排序后的新数组，不修改原数组
+ * @param {Array} arr 要进行重新排序的数组
+ * @param {Boolean} order 默认升序排列，指定false为降序排列 
+ * @returns {Array} 返回重新排序后的新数组，不修改原数组
  */
 Fn.sort = function (arr, order) {
     order == undefined ? order = true : order = !!order
@@ -134,12 +136,40 @@ Fn.sort = function (arr, order) {
 }
 
 
+//函数
+//===================================================
+/**
+ * debounce
+ *
+ * @param {Function} func 实际要执行的函数
+ * @param {Number} delay 延迟时间，单位是 ms
+ * @param {Function} callback 在 func 执行后的回调
+ *
+ * @return {Function}
+ */
+Fn.debounce = function (func, delay, callback) {
+    var timer
+
+    return function () {
+        var context = this
+        var args = arguments
+
+        clearTimeout(timer)
+
+        timer = setTimeout(function () {
+            func.apply(context, args)
+
+            !callback || callback()
+        }, delay)
+    }
+}
+
 //DOM
 //===================================================
 /**
  * 返回一个16进制编码随机颜色
  * 
- * @returns {string} #FF3399
+ * @returns {String} #FF3399
  */
 Fn.randomColor = function () {
     return '#' + Math.floor(Math.random() * 16777215).toString(16).toUpperCase()
@@ -148,9 +178,9 @@ Fn.randomColor = function () {
 /**
  * 图片预加载
  * 
- * @param {array} 图片路径字符串数组 [img1.png,img2.png]
+ * @param {Array} 图片路径字符串数组 [img1.png,img2.png]
  * @param {function} 图片加载完成后执行的回调函数，回调函数中的o指向图片对象
- * @returns {array} 返回图片对象数组
+ * @returns {Array} 返回图片对象数组
  */
 Fn.preLoadImage = function (srcArr, callback) {
 
@@ -337,17 +367,28 @@ Fn.response = function (config) {
  * 重设页面REM基准值
  * 
  */
-Fn.remResize = function () {
-    var w = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
-    var size = (w / 750) * 100;
-    document.documentElement.style.fontSize = (size < 100 ? size : 100) + 'px';
+Fn.remResize = function (designSize) {
+    var remResize = function (){
+        designSize = !!designSize ? designSize : 750
+        var w = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+        var size = (w / designSize) * 100;
+        document.documentElement.style.fontSize = (size < 100 ? size : 100) + 'px';
+    }
+
+    //第一次执行时
+    remResize()
+
+    //当变更窗口尺寸时重设
+    window.onresize = function () {
+        remResize()
+    };
 }
 
 /**
  * 获取url请求的字符串
  * 
- * @param {string} key URI请求的key
- * @returns {string} URI请求的key的值
+ * @param {String} key URI请求的key
+ * @returns {String} URI请求的key的值
  */
 Fn.param = function (key) {
     var map = {}

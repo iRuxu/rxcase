@@ -1,6 +1,6 @@
 var Fn = {
     version : '0.2',
-    github : 'https://github.com/iRuxu/fn.js'
+    github : 'https://github.com/iRuxu/fn.js',
     ua: {},
     win: {}
 }

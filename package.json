@@ -1,5 +1,5 @@
 {
-    "name" :"fn.js",
+    "name" :"webfn",
     "version": "0.0.1",
     "description": "A function package for web development",
     "main": "fn.js",

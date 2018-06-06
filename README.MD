@@ -33,9 +33,9 @@ __.ua()
 
 ### BOM 
 + **ua()** 返回一个记录ua信息的对象，同时为html根元素添加一些样式
-+ **fn.response([opts])** 指定一个样式响应规则，同时为html根元素添加一些样式
-+ **fn.resetREM([designSize])** 根据设计稿尺寸重设REM基准值，默认值750
-+ **fn.param(key)** 获取当前url请求字符串中指定key的值
++ **response([opts])** 指定一个样式响应规则，同时为html根元素添加一些样式
++ **resetREM([designSize])** 根据设计稿尺寸重设REM基准值，默认值750
++ **param(key)** 获取当前url请求字符串中指定key的值
 
 ### DOM
 + **randomColor()** 返回一个随机颜色，如"#00CCFF"
@@ -57,7 +57,7 @@ __.ua()
 + **removeFirst(arr)** 删除数组第一个元素，类似shift
 + **remove(arr,start,end)** 删除指定[start~end]区间的值
 + **fill(arr,val,start,end)** 使用指定值填充数组，类似fill
-+ **replace(arr,val,start,end,ispreat)** 使用外部数组替换目标数组的部分值， isrepeat指定当外部数组长度不够需要替换的区间时是否重复(默认false)
++ **replace(arr,val,start,end,ispreat)** 使用外部数组替换目标数组的部分值，isrepeat指定当外部数组长度不够需要替换的区间时是否重复(默认false)
 + **slice(arr,start,end)** 截取数组范围值，类似slice
 + **clean(arr)** 移除数组中的假值、空值、无效值
 

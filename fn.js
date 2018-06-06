@@ -1,7 +1,7 @@
 (function () {
     'use strict';
 
-    var version = "0.0.1";
+    var version = "0.0.2";
 
     var bom = {
         /**
@@ -258,10 +258,7 @@
                     !!callback && callback(imgArr);
                 }
             }
-            return imgArr
         }
-
-
     };
 
     var common = {

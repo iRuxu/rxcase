@@ -5,8 +5,8 @@ import commonjs from "rollup-plugin-commonjs";
 export default {
     input: "src/fn.js",
     output: {
-        file: "fn.js",
-        format: "iife"
+        file: "fn.umd.js",
+        format: "umd"
     },
     plugins: [json(), resolve(), commonjs()]
 };

@@ -1,4 +1,5 @@
-# Usage
+# Fn.js
+
 ## Install 
 use it in the browser,just create a script tag and insert it.
 ```html

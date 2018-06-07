@@ -1,13 +1,13 @@
 {
     "name" :"webfn",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "description": "A function package for web development",
     "main": "fn.js",
     "repository": {
         "type": "git",
         "url": "https://github.com/iRuxu/fn.js.git"
     },
-    "homepage": "https://github.com/iRuxu/fn.js",
+    "homepage": "http://iruxu.com/fn.js/",
     "bugs": {
         "url": "https://github.com/iRuxu/fn.js/issues",
         "email": "rx6@qq.com"

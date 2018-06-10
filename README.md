@@ -44,23 +44,23 @@ __.ua()
 
 ## Reference
 
-+ **ua()**   
++ **[ua()](https://github.com/iRuxu/fn.js/tree/master/lib])**   
     return a ojbect which contains the user agent info,and add some classes to html element  
 
-+ **response([opts])**  
++ **[response([opts])](https://github.com/iRuxu/fn.js/blob/master/lib/response.js)**  
     define the response rules for window size,add some classes to the html element by the custom option
 
-+ **resetREM([designSize])**   
++ **[resetREM([designSize])](https://github.com/iRuxu/fn.js/blob/master/lib/remResize.js)**   
     rewrite the REM base size(modify the html font-size) refer to the design size
 
-+ **param(key)**   
++ **[param(key)](https://github.com/iRuxu/fn.js/blob/master/lib/param.js)**   
     get the value of the specified key in the url
 
-+ **randomColor()**   
++ **[randomColor()](https://github.com/iRuxu/fn.js/blob/master/lib/randomColor.js)**   
     return a random color string by hexadecimal code,just like"#00CCFF"
 
-+ **preLoadImage(srcArr,[cb])**   
++ **[preLoadImage(srcArr,[cb])](https://github.com/iRuxu/fn.js/blob/master/lib/preLoadImage.js)**   
     load some images and exec a callback function
 
-+ **typeOf(o)**   
++ **[typeOf(o)](https://github.com/iRuxu/fn.js/blob/master/lib/typeOf.js)**   
     judge the type of the target,return a string,just like "string"

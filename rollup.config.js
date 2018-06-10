@@ -5,6 +5,7 @@ import commonjs from "rollup-plugin-commonjs";
 export default {
     input: "src/fn.js",
     output: {
+        name: "fn",
         file: "fn.js",
         format: "iife"
     },

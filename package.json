@@ -1,6 +1,6 @@
 {
     "name" :"webfn",
-    "version": "0.0.3",
+    "version": "0.0.5",
     "description": "A function package for web development",
     "main": "fn.js",
     "repository": {
@@ -14,7 +14,8 @@
     },
     "scripts": {
         "build": "rollup --config rollup.config.js",
-        "umd": "rollup --config rollup.config.umd.js"
+        "umd": "rollup --config rollup.config.umd.js",
+        "cjs": "rollup --config rollup.config.cjs.js"
     },
     "devDependencies": {
         "rollup": "^0.59.4",

@@ -1,9 +1,16 @@
 # Fn.js
+## Install
+### > Download the file 
+[Download latest version](https://github.com/iRuxu/fn.js/releases)
+### > Get it by npm/cnpm
+```shell
+npm install webfn
+```
+
 
 ## Usage
 ### > Import as a single file
-1.Download the file  
-2.Create a script tag and insert it in the HTML file,just like:
+Create a script tag and insert it in the HTML file,just like:
 ```html
 <script src="fn.js">
 <!-- or umd-->
@@ -11,11 +18,7 @@
 ```
 
 ### > Import as a es6/node module
-1.Get it by npm/cnpm
-```shell
-npm install webfn
-```
-2.import it in the file
+import it in the javascript file
 ```javascript
 const fn = require('fn')
 //or

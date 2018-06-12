@@ -1,6 +1,6 @@
 {
   "name": "webfn",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "A function package for web development",
   "main": "fn.cjs.js",
   "repository": {

@@ -12,7 +12,9 @@
     "url": "https://github.com/iRuxu/fn.js/issues",
     "email": "rx6@qq.com"
   },
-  "scripts": {},
+  "scripts": {
+    "build":"rollup --config rollup.config.js"
+  },
   "devDependencies": {
     "rollup": "^0.59.4",
     "rollup-plugin-commonjs": "^9.1.3",

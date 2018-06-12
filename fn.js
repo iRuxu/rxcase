@@ -1,9 +1,9 @@
 var fn = (function () {
   'use strict';
 
-  var version = "0.0.6";
+  var version = "0.0.7";
 
-  var param = function (key){
+  function param (key){
       /**
        * 获取url请求的字符串
        * @name param
@@ -17,9 +17,9 @@ var fn = (function () {
           map[param[i][0]] = param[i][1];
       }
       return map[key];
-  };
+  }
 
-  var preLoadImage = function (srcArr, callback){
+  function preLoadImage (srcArr, callback){
       /**
        * 图片预加载
        * @name preLoadImage
@@ -47,18 +47,18 @@ var fn = (function () {
               !!callback && callback(imgArr);
           }
       }
-  };
+  }
 
-  var randomColor = function (){
+  function randomColor (){
       /**
        * 返回一个16进制编码随机颜色
        * @name randomColor
        * @returns {String} #FF3399
        */
       return '#' + Math.floor(Math.random() * 16777215).toString(16).toUpperCase()
-  };
+  }
 
-  var remResize = function (designSize){
+  function remResize (designSize){
       /**
        * 重设页面REM基准值
        * @name remResize
@@ -82,9 +82,9 @@ var fn = (function () {
       window.onresize = function() {
           remResize();
       };
-  };
+  }
 
-  var response = function (config){
+  function response (config){
       /**
        * 设置一个响应样式规则
        * @name response
@@ -159,9 +159,9 @@ var fn = (function () {
       window.onresize = function() {
           resetLayout();
       };
-  };
+  }
 
-  var typeOf = function(o) {
+  function typeOf(o) {
       /**
       * 数据类型判断
       * @name typeOf
@@ -170,9 +170,9 @@ var fn = (function () {
       */
      var s = Object.prototype.toString.call(o);
      return s.match(/\[object (.*?)\]/)[1].toLowerCase()
-  };
+  }
 
-  var ua = function (){
+  function ua (){
       /**
        * UserAgent检测
        * @name ua
@@ -266,7 +266,7 @@ var fn = (function () {
 
       Fn.ua = _ua;
       return _ua;
-  };
+  }
 
   var fn = {
       ver: version,

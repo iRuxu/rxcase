@@ -7,22 +7,17 @@
 npm install webfn
 ```
 
-
 ## Usage
 ### > Import as a single file
 Create a script tag and insert it in the HTML file,just like:
 ```html
 <script src="fn.js">
-<!-- or umd-->
-<script src="fn.umd.js">
 ```
 
 ### > Import as a es6/node module
 import it in the javascript file
 ```javascript
-const fn = require('fn')
-//or
-import fn from 'fn.cjs.js'
+import fn from 'fn.js'
 ```
 
 ## Sample

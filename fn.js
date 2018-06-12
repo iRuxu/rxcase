@@ -1,9 +1,9 @@
 var fn = (function () {
   'use strict';
 
-  var version = "0.0.7";
+  var version = "0.0.8";
 
-  function param (key){
+  function param (key) {
       /**
        * 获取url请求的字符串
        * @name param
@@ -19,7 +19,7 @@ var fn = (function () {
       return map[key];
   }
 
-  function preLoadImage (srcArr, callback){
+  function preLoadImage (srcArr, callback) {
       /**
        * 图片预加载
        * @name preLoadImage
@@ -49,28 +49,25 @@ var fn = (function () {
       }
   }
 
-  function randomColor (){
-      /**
-       * 返回一个16进制编码随机颜色
-       * @name randomColor
-       * @returns {String} #FF3399
-       */
-      return '#' + Math.floor(Math.random() * 16777215).toString(16).toUpperCase()
+  function randomColor () {
+    /**
+     * 返回一个16进制编码随机颜色
+     * @name randomColor
+     * @returns {String} #FF3399
+     */
+    return '#' + Math.floor(Math.random() * 0xFFFFFF).toString(16).toUpperCase();
   }
 
-  function remResize (designSize){
+  function remResize (designSize) {
       /**
        * 重设页面REM基准值
        * @name remResize
        * @param {Number} designSize 设计稿尺寸宽（基准用）
        */
-      var remResize = function() {
+      var remResize = function () {
           designSize = !!designSize ? designSize : 750;
-          var w =
-              window.innerWidth ||
-              document.documentElement.clientWidth ||
-              document.body.clientWidth;
-          var size = (w / designSize) * 100;
+          var w = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+          var size = w / designSize * 100;
           size = size < 100 ? size : 100;
           document.documentElement.style.fontSize = size + "px";
       };
@@ -79,12 +76,12 @@ var fn = (function () {
       remResize();
 
       //当变更窗口尺寸时重设
-      window.onresize = function() {
+      window.onresize = function () {
           remResize();
       };
   }
 
-  function response (config){
+  function response (config) {
       /**
        * 设置一个响应样式规则
        * @name response
@@ -110,15 +107,9 @@ var fn = (function () {
       }
 
       //根据页面尺寸绑定对应class至html
-      var resetLayout = function() {
-          var width =
-              window.innerWidth ||
-              document.documentElement.clientWidth ||
-              document.body.clientWidth;
-          var height =
-              window.innerHeight ||
-              document.documentElement.clientHeight ||
-              document.body.clientHeight;
+      var resetLayout = function () {
+          var width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+          var height = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
 
           Fn.win.width = width;
           Fn.win.height = height;
@@ -156,23 +147,23 @@ var fn = (function () {
       resetLayout();
 
       //当变更窗口尺寸时重设
-      window.onresize = function() {
+      window.onresize = function () {
           resetLayout();
       };
   }
 
-  function typeOf(o) {
+  function typeOf (o) {
       /**
       * 数据类型判断
       * @name typeOf
       * @param {any} 需要判断的数据对象
       * @returns {String} 返回数据类型 string/array/object/number/undefined/null/boolean
       */
-     var s = Object.prototype.toString.call(o);
-     return s.match(/\[object (.*?)\]/)[1].toLowerCase()
+      var s = Object.prototype.toString.call(o);
+      return s.match(/\[object (.*?)\]/)[1].toLowerCase();
   }
 
-  function ua (){
+  function ua () {
       /**
        * UserAgent检测
        * @name ua
@@ -199,25 +190,9 @@ var fn = (function () {
       var cls = document.documentElement.className;
 
       //平台检测
-      var mobileAgents = [
-          "micromessenger",
-          "android",
-          "iphone",
-          "symbianOS",
-          "windows phone",
-          "ipad",
-          "ipod"
-      ];
-      var mobileAngntsAlias = [
-          "wx",
-          "android",
-          "iphone",
-          "symbian",
-          "wp",
-          "ipad",
-          "ipod"
-      ];
-      var platformCheck = (function() {
+      var mobileAgents = ["micromessenger", "android", "iphone", "symbianOS", "windows phone", "ipad", "ipod"];
+      var mobileAngntsAlias = ["wx", "android", "iphone", "symbian", "wp", "ipad", "ipod"];
+      var platformCheck = function () {
           for (var i = 0; i < mobileAgents.length; i++) {
               if (ua.indexOf(mobileAgents[i]) > 0) {
                   _ua.isPC = false;
@@ -232,16 +207,14 @@ var fn = (function () {
               cls += " ua-" + "pc";
               document.documentElement.className = cls;
           }
-      })();
+      }();
 
       //浏览器检测
-      var pcAgents =
-          /(micromessenger|opr|edge|firefox)[ \/]([\w.]+)/.exec(ua) || // Wechat & Oprea & Edge & firefox
-          /(chrome)[ \/]([\w.]+)/.exec(ua) || // Chrome
-          /(safari)[ \/]([\w.]+)/.exec(ua) || // Safari
-          /(msie) ([\w.]+)/.exec(ua) || //IE7-10
-          /(trident).+rv:(\w.)+/.exec(ua) ||
-          []; //IE 11
+      var pcAgents = /(micromessenger|opr|edge|firefox)[ \/]([\w.]+)/.exec(ua) || // Wechat & Oprea & Edge & firefox
+      /(chrome)[ \/]([\w.]+)/.exec(ua) || // Chrome
+      /(safari)[ \/]([\w.]+)/.exec(ua) || // Safari
+      /(msie) ([\w.]+)/.exec(ua) || //IE7-10
+      /(trident).+rv:(\w.)+/.exec(ua) || []; //IE 11
       var pcAgentsAlias = {
           micromessenger: "wx",
           opr: "oprea",
@@ -252,7 +225,7 @@ var fn = (function () {
           trident: "ie",
           msie: "ie"
       };
-      var browserCheck = (function() {
+      var browserCheck = function () {
           var browser = pcAgents[1];
           _ua.browser = pcAgentsAlias[browser];
 
@@ -262,7 +235,7 @@ var fn = (function () {
           cls += " browser-" + _ua.browser;
           if (_ua.browser == "ie") cls += " ie-" + _ua.version;
           document.documentElement.className = cls;
-      })();
+      }();
 
       Fn.ua = _ua;
       return _ua;
@@ -280,7 +253,7 @@ var fn = (function () {
   };
   var root = typeof global !== "undefined" ? global : window;
   var $fn = root.fn;
-  fn.noConflict = function() {
+  fn.noConflict = function () {
       if (root.fn === fn) {
           root.fn = $fn;
       }

@@ -1,7 +1,7 @@
-var fn = (function () {
+(function () {
   'use strict';
 
-  var version = "0.0.8";
+  var version = "0.0.9";
 
   function param (key) {
       /**
@@ -260,7 +260,5 @@ var fn = (function () {
       return fn;
   };
   root.fn = fn;
-
-  return fn;
 
 }());

@@ -26,4 +26,3 @@ fn.noConflict = function() {
     return fn;
 };
 root.fn = fn;
-export default fn;

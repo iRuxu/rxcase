@@ -1,6 +1,6 @@
 {
   "name": "webfn",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "A function package for web development",
   "main": "fn.js",
   "repository": {
@@ -16,6 +16,7 @@
     "build": "rollup --config rollup.config.js"
   },
   "devDependencies": {
+    "babel-core": "^6.26.3",
     "babel-preset-env": "^1.7.0",
     "rollup": "^0.60.2",
     "rollup-plugin-babel": "^3.0.4",

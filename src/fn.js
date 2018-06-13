@@ -1,11 +1,11 @@
 import { version } from "../package.json";
 import param from "../lib/param.js";
-import preLoadImage from "../lib/preLoadImage.js"
-import randomColor from "../lib/randomColor.js"
-import remResize from "../lib/remResize.js"
-import response from "../lib/response.js"
-import typeOf from "../lib/typeOf.js"
-import ua from "../lib/ua.js"
+import preLoadImage from "../lib/preLoadImage.js";
+import randomColor from "../lib/randomColor.js";
+import remResize from "../lib/remResize.js";
+import response from "../lib/response.js";
+import typeOf from "../lib/typeOf.js";
+import ua from "../lib/ua.js";
 
 var fn = {
     ver: version,

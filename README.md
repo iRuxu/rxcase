@@ -18,6 +18,7 @@ Create a script tag and insert it in the HTML file,just like:
 import it in the javascript file
 ```javascript
 import fn from 'fn.js'
+let ua = require('webfn/lib/ua')
 ```
 
 ## Sample
@@ -42,7 +43,7 @@ __.ua()
 
 ## Reference
 
-+ **[ua()](https://github.com/iRuxu/fn.js/tree/master/lib])**   
++ **[ua()](https://github.com/iRuxu/fn.js/blob/master/lib/ua.js])**   
     return a ojbect which contains the user agent info,and add some classes to html element  
 
 + **[response([opts])](https://github.com/iRuxu/fn.js/blob/master/lib/response.js)**  

@@ -17,7 +17,7 @@ Create a script tag and insert it in the HTML file,just like:
 ### > Import as a es6/node module
 import it in the javascript file
 ```javascript
-import fn from 'fn.js'
+import 'fn.js'
 let ua = require('webfn/lib/ua')
 ```
 

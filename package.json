@@ -1,6 +1,6 @@
 {
   "name": "webfn",
-  "version": "0.0.9",
+  "version": "0.1.0",
   "description": "A function package for web development",
   "main": "fn.js",
   "repository": {

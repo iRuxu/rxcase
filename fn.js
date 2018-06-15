@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  var version = "0.0.9";
+  var version = "0.1.0";
 
   function param (key) {
       /**
@@ -236,6 +236,8 @@
           if (_ua.browser == "ie") cls += " ie-" + _ua.version;
           document.documentElement.className = cls;
       }();
+
+      window._ua = _ua;
 
       return _ua;
   }

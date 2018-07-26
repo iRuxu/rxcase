@@ -1,4 +1,4 @@
-module.exports = {
+export default {
     
     //数组排序
     sort: function(arr, method) {

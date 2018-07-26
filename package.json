@@ -1,8 +1,8 @@
 {
   "name": "webfn",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "A function package for web development",
-  "main": "fn.js",
+  "main": "ua.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/iRuxu/fn.js.git"
@@ -11,17 +11,5 @@
   "bugs": {
     "url": "https://github.com/iRuxu/fn.js/issues",
     "email": "rx6@qq.com"
-  },
-  "scripts": {
-    "build": "rollup --config rollup.config.js"
-  },
-  "devDependencies": {
-    "babel-core": "^6.26.3",
-    "babel-preset-env": "^1.7.0",
-    "rollup": "^0.60.2",
-    "rollup-plugin-babel": "^3.0.4",
-    "rollup-plugin-commonjs": "^9.1.3",
-    "rollup-plugin-json": "^3.0.0",
-    "rollup-plugin-node-resolve": "^3.3.0"
   }
 }

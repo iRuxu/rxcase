@@ -1,31 +1,10 @@
 # Fn.js
-## Install
-### > Download the file 
-[Download latest version](https://github.com/iRuxu/fn.js/releases)
-### > Get it by npm/cnpm
-```shell
-npm install webfn
-```
 
 ## Usage
-### > Import as a single file
-Create a script tag and insert it in the HTML file,just like:
-```html
-<script src="fn.js">
-```
-
-### > Import as a es6/node module
-import it in the javascript file
 ```javascript
-import 'fn.js'
-let ua = require('webfn/lib/ua')
-```
-
-## Sample
-The default namespace is "fn",you can use the function as this example
-```javascript
-var ua = fn.ua()
-//return an object whihc contains some user agent info
+import ua from 'ua.js'
+let _ua = ua()
+//return an object which contains some user agent info
 {
     isPC:false,         
     isMobile:true,      
@@ -33,12 +12,6 @@ var ua = fn.ua()
     browser:'wx',       //browser name
     version:6           //browser version
 }
-```
-
-When you use it as a single file,if the "fn" is existed,or you just wanna change another name,you can do like this:
-```javascript
-var ___ = fn.conflict()
-__.ua()
 ```
 
 ## Reference
@@ -51,6 +24,9 @@ __.ua()
 
 + **[resetREM([designSize])](https://github.com/iRuxu/fn.js/blob/master/lib/remResize.js)**   
     rewrite the REM base size(modify the html font-size) refer to the design size
+
++ **[viewportPlug([plugSize])](https://github.com/iRuxu/fn.js/blob/master/lib/viewportPlug.js)**   
+    define when the plug the viewport control meta,for example when you wanna show the pc model for ipad landscape state but the mobile model for ipad portrait state
 
 + **[param(key)](https://github.com/iRuxu/fn.js/blob/master/lib/param.js)**   
     get the value of the specified key in the url

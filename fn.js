@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  var version = "0.1.0";
+  var version = "0.1.1";
 
   function param (key) {
       /**
@@ -65,11 +65,20 @@
        * @param {Number} designSize 设计稿尺寸宽（基准用）
        */
       var remResize = function () {
-          designSize = !!designSize ? designSize : 750;
           var w = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+          var h = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+
+          designSize = !!designSize ? designSize : 750;
           var size = w / designSize * 100;
           size = size < 100 ? size : 100;
           document.documentElement.style.fontSize = size + "px";
+
+          var o = {
+              width: w,
+              height: h
+          };
+
+          window._osize = o;
       };
 
       //第一次执行时

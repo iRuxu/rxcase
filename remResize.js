@@ -1,17 +1,18 @@
-export default function (designSize){
+export default function (designSize=750,times=100){
     /**
      * 重设页面REM基准值
      * @name remResize
      * @param {Number} designSize 设计稿尺寸宽（基准用）
+     * @param {Number} times 倍数
+     * @desc 依赖jquery,lodash
      */
-    var remResize = function() {
-        var w =
+    let remResize = function() {
+        let w =
             window.innerWidth ||
             document.documentElement.clientWidth ||
             document.body.clientWidth;
-        designSize = !!designSize ? designSize : 750;
-        var size = (w / designSize) * 100;
-        size = size < 100 ? size : 100;
+        let size = (w / designSize) * times;
+        size = size < times ? size : times;
         document.documentElement.style.fontSize = size + "px";
     };
 
@@ -19,7 +20,5 @@ export default function (designSize){
     remResize();
 
     //当变更窗口尺寸时重设
-    window.onresize = function() {
-        remResize();
-    }
+    $(window).on('resize',_.debounce(remResize,200))
 }

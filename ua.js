@@ -86,7 +86,10 @@ export default function (){
         _ua.version = parseInt(version);
 
         cls += " browser-" + _ua.browser;
-        if (_ua.browser == "ie") cls += " ie-" + _ua.version;
+        if (_ua.browser == "ie") {
+            _ua.isIE = true;
+            cls += " ie-" + _ua.version;
+        }
         document.documentElement.className = cls;
     })();
 

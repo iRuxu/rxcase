@@ -7,10 +7,14 @@
 function jsonParse(json){
     return new Promise((resolve,reject)=>{
         try{
-            let target = JSON.parse(json)
-            resolve(target)
+            //对空字符串做特殊处理
+            if(json.trim() == ''){
+                resolve('')
+            }else{
+                resolve(JSON.parse(json))
+            }
         }catch(e){
-            reject(e)
+            reject(new Error(`[JSON.parse Error] Origin Data => ${json}`))
         }
     })
 }

@@ -29,4 +29,6 @@ samples/default/build
 samples/build
 samples/.silky/plugin
 
-temp
+test
+temp/test.js
+todo
